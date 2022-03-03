@@ -1,17 +1,23 @@
 package org.example;
 
-import org.example.entities.Employee;
-import org.example.entities.Position;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.example.conf.HibernateConf;
+import org.example.crud_operations.impl.EmployeeCRUD;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main( String[] args ) {
+//        Scanner in = new Scanner(System.in);
+        HibernateConf.connect();
 
-        SessionFactory factory = new Configuration()
-                .configure("config.xml")
-                .addAnnotatedClass(Employee.class)
-                .addAnnotatedClass(Position.class)
-                .buildSessionFactory();
+//        EmployeeCRUD employeeCRUD = new EmployeeCRUD(in);
+//        employeeService.insertEmployee(in);
+//        employeeService.updateEmployee(in);
+//        employeeService.deleteEmployee(in);
+//        employeeService.getAllEmployess();
+
+
+
+
     }
 }

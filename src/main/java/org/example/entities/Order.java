@@ -1,6 +1,7 @@
 package org.example.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,15 +10,16 @@ import javax.persistence.*;
 @Table(name = "orders")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Order {
     @Id
     private Integer orderNumber;
 
-    @JoinColumn(name = "employee_id")
     @ManyToOne
+    @JoinColumn(name = "employee_passport_number")
     private Employee employee;
 
-    @JoinColumn(name = "tour_id")
     @ManyToOne
+    @JoinColumn(name = "tour_number")
     private Tour tour;
 }

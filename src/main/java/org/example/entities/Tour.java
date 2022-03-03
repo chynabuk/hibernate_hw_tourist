@@ -1,6 +1,7 @@
 package org.example.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -11,28 +12,29 @@ import java.util.Date;
 @Table(name = "tours")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Tour {
     @Id
     private Integer tourNumber;
 
-    @JoinColumn(name = "tour_type")
     @ManyToOne
+    @JoinColumn(name = "tour_type_id")
     private TourType tourType;
 
-    @JoinColumn(name = "country")
     @ManyToOne
+    @JoinColumn(name = "country_id")
     private Country country;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Column
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date startDate;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Column
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date endDate;
 
-    @JoinColumn(name = "program_number")
     @ManyToOne
+    @JoinColumn(name = "program_number")
     private Program program;
 
     @Column

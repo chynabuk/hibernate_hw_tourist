@@ -1,6 +1,7 @@
 package org.example.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 @Table(name = "tourists")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Tourist {
     @Id
     private Integer passportNumber;

@@ -1,6 +1,7 @@
 package org.example.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "hotels")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Hotel {
     @Id
     private Integer hotelCode;
@@ -21,11 +23,11 @@ public class Hotel {
     private String name;
 
     @Nullable
-    @JoinColumn(name = "tour_id")
     @ManyToOne
+    @JoinColumn(name = "tour_number")
     private Tour tour;
 
-    @JoinColumn(name = "hotel_class")
     @ManyToOne
+    @JoinColumn(name = "hotel_class_id")
     private HotelClass hotelClass;
 }

@@ -1,6 +1,7 @@
 package org.example.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -11,6 +12,7 @@ import java.sql.Time;
 @Table(name = "events")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Event extends BaseEntity{
     @Column
     private String city;
@@ -25,7 +27,7 @@ public class Event extends BaseEntity{
     @Column
     private String name;
 
-    @JoinColumn(name = "tour_id")
     @ManyToOne
+    @JoinColumn(name = "tour_number")
     private Tour tour;
 }

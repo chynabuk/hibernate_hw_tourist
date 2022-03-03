@@ -1,6 +1,7 @@
 package org.example.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
@@ -13,6 +14,7 @@ import java.util.Date;
 @Table(name = "agreements")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Agreement {
     @Id
     private Integer agreementNumber;
@@ -22,11 +24,12 @@ public class Agreement {
     private Date formalizationDate;
 
     @Nullable
-    @JoinColumn(name = "tour_id")
     @ManyToOne
+    @JoinColumn(name = "tour_number")
     private Tour tour;
 
     @NonNull
-    @JoinColumn(name = "client_id")
+    @ManyToOne
+    @JoinColumn(name = "client_number")
     private Client client;
 }

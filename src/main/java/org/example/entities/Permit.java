@@ -1,26 +1,28 @@
 package org.example.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "permits")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Permit {
     @Id
     private Integer permitNumber;
 
     @NonNull
-    @JoinColumn(name = "agreement_number")
     @ManyToOne
+    @JoinColumn(name = "agreement_number")
     private Agreement agreement;
 
-    @OneToMany(mappedBy = "permits")
-    private Set<Tourist> touristList;
+    @ManyToOne
+    @JoinColumn(name = "tourist_passport_number")
+    private Tourist tourist;
 
 }
